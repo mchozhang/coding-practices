@@ -16,14 +16,18 @@ import "fmt"
 func twoSum(nums []int, target int) []int {
 	var result []int
 
+	var arrMap  = map[int]int{}
+	for index, num := range nums {
+		arrMap[num] = index
+	}
+
 	for i := 0; i < len(nums); i++ {
 		var first = nums[i]
-		for j := i + 1; j < len(nums); j++ {
-			var second = nums[j]
-			if first + second == target {
-				result = append(result, i)
-				result = append(result, j)
-			}
+		var complement = target - first
+		if val, ok := arrMap[complement]; ok && i != val {
+			result = append(result, i)
+			result = append(result, val)
+			break
 		}
 	}
 
@@ -31,8 +35,8 @@ func twoSum(nums []int, target int) []int {
 }
 
 func main() {
-	var arr = [] int {2, 7, 11, 15}
-	var target = 9
+	var arr = [] int {3, 2, 4, 15}
+	var target = 6
 	var result = twoSum(arr, target)
 
 	for i := 0 ; i < len(result); i++ {
