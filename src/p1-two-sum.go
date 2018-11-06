@@ -18,7 +18,7 @@ import "fmt"
 func twoSum(nums []int, target int) []int {
 	var result []int
 
-	var arrMap  = map[int]int{}
+	var arrMap = map[int]int{}
 	for index, num := range nums {
 		arrMap[num] = index
 	}
@@ -37,11 +37,11 @@ func twoSum(nums []int, target int) []int {
 }
 
 func main() {
-	var arr = [] int {3, 2, 4, 15}
+	var arr = [] int{3, 2, 4, 15}
 	var target = 6
 	var result = twoSum(arr, target)
 
-	for i := 0 ; i < len(result); i++ {
+	for i := 0; i < len(result); i++ {
 		fmt.Println(result[i])
 	}
 }
