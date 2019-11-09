@@ -1,2 +1,2 @@
 # LeetCode-Solutions
-Go solutions of leetcode online judge problems
+Leetcode online judge solutions
