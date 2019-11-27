@@ -12,12 +12,20 @@ def generate_cards(suit_list, start, interval, total_card=52):
     """
     number_list = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
     cards = []
+    card_set = set()
     i = 0
     current = start
     while i < total_card:
         number = number_list[current]
         suit = suit_list[i % 4]
-        cards.append((number, suit))
+        card = (number, suit)
+        cards.append(card)
+
+        # repeat check
+        if card not in card_set:
+            card_set.add(card)
+        else:
+            print("repeat")
 
         current += interval
         if current >= len(number_list):

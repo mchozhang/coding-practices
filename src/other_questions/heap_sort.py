@@ -1,6 +1,8 @@
 # heap sort
 # 1. build a heap, max heap for ascending order, min heap for descending order
 # 2. swap the root node with the last leaf node one by one
+# time complexity: O(NlogN)
+# space complexity: O(n)
 
 
 def heapify(arr, len, i):
@@ -38,12 +40,12 @@ def heap_sort(arr):
     """
     # build max heap,
     # start with the last non-leaf node, from right to left and bottom-up
-    i = int(len(arr) / 2) - 1
+    i = len(arr) // 2 - 1
     while i >= 0:
         heapify(arr, len(arr), i)
         i -= 1
 
-    # extract the max value remained the heap one by one
+    # extract the max value remained in the heap one by one
     i = len(arr) - 1
     while i > 0:
         # swap the max value to the bottom
@@ -54,27 +56,28 @@ def heap_sort(arr):
         i -= 1
 
 
-def nth_largest_value(arr, n):
+def kth_largest_value(arr, k):
     """
     find the nth largest value in the array:
+    time complexity: O(nlogk)
     :param arr: array
-    :param n: 0 < n <= len(arr)
+    :param k: 0 < k <= len(arr)
     :return: nth largest value
     """
     # build max heap
-    start = int(len(arr) / 2) - 1
+    start = len(arr) // 2 - 1
     for i in range(start, -1, -1):
         heapify(arr, len(arr), i)
 
     # extract the max value remained the heap one by one,
     # repeat n times
     start = len(arr) - 1
-    for i in range(start, start - n, -1):
+    for i in range(start, start - k, -1):
         # swap the max value to the bottom
         arr[0], arr[i] = arr[i], arr[0]
         heapify(arr, i, 0)
 
-    return arr[-n]
+    return arr[-k]
 
 
 if __name__ == "__main__":
@@ -84,5 +87,5 @@ if __name__ == "__main__":
 
     # find 2nd largest
     arr = [6, 5, 7, 0, 1, 8, 2, 9, 3, 4]
-    second_largest = nth_largest_value(arr, 2)
+    second_largest = kth_largest_value(arr, 2)
     print(second_largest)
