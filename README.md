@@ -1,2 +1,2 @@
-# LeetCode-Solutions
-Leetcode online judge solutions
+# Coding Practices
+Classical programming questions and Leetcode online judge solutions.
