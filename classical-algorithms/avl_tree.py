@@ -216,44 +216,54 @@ class AVLTree:
             return self.get_max_node(node.right)
 
     @staticmethod
-    def left_rotate(z):
+    def left_rotate(a):
         """
         left rotate the unbalanced node
-        :param z: the node performing rotation
-        :return: the node after perform left rotation
+             A                  B
+              \                /  \
+               B    ------->  A    D
+              / \              \
+             C   D              C
+        :param a: the node A performing left rotation
+        :return: the node B after perform left rotation
         """
-        y = z.right
-        T2 = y.left
+        b = a.right
+        c = b.left
 
         # perform rotation
-        y.left = z
-        z.right = T2
+        b.left = a
+        a.right = c
 
         # update height
-        z.update()
-        y.update()
+        a.update()
+        b.update()
 
-        return y
+        return b
 
     @staticmethod
-    def right_rotate(z):
+    def right_rotate(a):
         """
         right rotate the unbalanced node
-        :param z: the node performing rotation
-        :return: the node after perform right rotation
+             A                 B
+            /                /  \
+           B    ------->    C   A
+          / \                  /
+         C   D                D
+        :param a: the node A performing rotation
+        :return: the node node_d after perform right rotation
         """
-        y = z.left
-        T3 = y.right
+        b = a.left
+        d = b.right
 
         # perform rotation
-        y.right = z
-        z.left = T3
+        b.right = a
+        a.left = d
 
         # update height
-        z.update()
-        y.update()
+        a.update()
+        b.update()
 
-        return y
+        return b
 
     def pre_order_traverse(self):
         """
