@@ -9,34 +9,34 @@
 # Input: text1 = "abcde", text2 = "ace"
 # Output: 3
 # Explanation: The longest common subsequence is "ace" and its length is 3.
+#
+# submission: faster than 11%
 
 
-class Solution:
+def longestCommonSubsequence(text1: str, text2: str) -> int:
+    """
+    time complexity: O(MN)
+    """
+    dp = dict()
 
-    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        """
-        time complexity: O(MN)
-        """
-        dp = dict()
+    def get_dp(i, j):
+        if (i, j) in dp:
+            return dp[(i, j)]
+        else:
+            return 0
 
-        def get_dp(i, j):
-            if (i, j) in dp:
-                return dp[(i, j)]
+    for i in range(1, len(text1) + 1):
+        for j in range(1, len(text2) + 1):
+            if text1[i - 1] == text2[j - 1]:
+                dp[(i, j)] = 1 + get_dp(i - 1, j - 1)
             else:
-                return 0
+                dp[(i, j)] = max(get_dp(i - 1, j), get_dp(i, j - 1))
 
-        for i in range(1, len(text1) + 1):
-            for j in range(1, len(text2) + 1):
-                if text1[i - 1] == text2[j - 1]:
-                    dp[(i, j)] = 1 + get_dp(i - 1, j - 1)
-                else:
-                    dp[(i, j)] = max(get_dp(i - 1, j), get_dp(i, j - 1))
-
-        return dp[len(text1), len(text2)]
+    return dp[len(text1), len(text2)]
 
 
 if __name__ == "__main__":
     s1 = "abc"
     s2 = "aabdc"
 
-    print(Solution().longestCommonSubsequence(s1, s2))
+    print(longestCommonSubsequence(s1, s2))
