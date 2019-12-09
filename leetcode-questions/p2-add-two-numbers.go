@@ -15,7 +15,9 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type ListNode struct {
 	Val  int
@@ -23,8 +25,7 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var list ListNode
-	var node = &list
+	var node = &ListNode{0, nil}
 	var head = node
 	var carry = 0
 
@@ -51,7 +52,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		sum = val1 + val2 + carry
 		carry = 0
 		if sum >= 10 {
-			carry = 1;
+			carry = 1
 			sum = sum % 10
 		}
 		node.Val = sum
@@ -66,33 +67,25 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 
 func main() {
-	var first = []int{5}
-	var second = []int{5}
+	var first = [] int{2, 4, 3}
+	var second = [] int{5, 6, 4}
 
-	var head1 ListNode
-	var head2 ListNode
-	var node1 = &head1
-	var node2 = &head2
-	var headPtr1 = node1
-	var headPtr2 = node2
+	var node1 = &ListNode{first[0], nil}
+	var node2 = &ListNode{second[0], nil}
+	var head1 = node1
+	var head2 = node2
 
-	for i := 0; i < len(first); i++ {
-		node1.Val = first[i]
-		if i != len(first) - 1 {
-			node1.Next = &ListNode{}
-			node1 = node1.Next
-		}
+	for _, v := range first[1:] {
+		node1.Next = &ListNode{v, nil}
+		node1 = node1.Next
 	}
 
-	for i := 0; i < len(second); i++ {
-		node2.Val = second[i]
-		if i != len(second) - 1 {
-			node2.Next = &ListNode{}
-			node2 = node2.Next
-		}
+	for _, v := range second[1:] {
+		node2.Next = &ListNode{v, nil}
+		node2 = node2.Next
 	}
 
-	var result = addTwoNumbers(headPtr1, headPtr2)
+	var result = addTwoNumbers(head1, head2)
 	for i := 0; result != nil; i++ {
 		fmt.Println(result.Val)
 		result = result.Next

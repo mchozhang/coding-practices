@@ -38,4 +38,6 @@ func lengthOfLongestSubstring(s string) int {
 func main() {
 	var s = "abcaefgh"
 	fmt.Println(lengthOfLongestSubstring(s))
+
+
 }
