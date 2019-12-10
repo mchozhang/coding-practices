@@ -23,7 +23,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	node := head
 	nodes := make([]*ListNode, 0, n + 1)
 
-	for ;node != nil; {
+	for node != nil {
 		if len(nodes) == n + 1 {
 			nodes = append(nodes[1:], node)
 		} else {
@@ -58,7 +58,7 @@ func main() {
 	}
 
 	var result = removeNthFromEnd(head, 3)
-	for ; result != nil; {
+	for result != nil {
 		fmt.Println(result.Val)
 		result = result.Next
 	}
