@@ -18,9 +18,7 @@
 
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type TreeNode struct {
 	Val   int
@@ -52,11 +50,11 @@ func levelOrder(root *TreeNode) [][]int {
 
 		if current.Left != nil {
 			queue = append(queue, current.Left)
-			levelCounter[level + 1]++
+			levelCounter[level+1]++
 		}
 		if current.Right != nil {
 			queue = append(queue, current.Right)
-			levelCounter[level + 1]++
+			levelCounter[level+1]++
 		}
 
 		if len(traversal[level]) == levelCounter[level] {
