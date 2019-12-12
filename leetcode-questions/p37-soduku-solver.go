@@ -3,7 +3,7 @@
  * https://leetcode.com/problems/sudoku-solver/
  * Write a program to solve a Sudoku puzzle by filling the empty cells.
  *
- * submission : faster than 100%
+ * submission : faster than 48%
  */
 
 package main
