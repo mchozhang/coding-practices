@@ -6,8 +6,9 @@
 #  Input: [1->4->5, 1->3->4, 2->6]
 #  Output: 1->1->2->3->4->4->5->6
 #
-#  submission : faster than 25.57%
+#  submission : faster than 78.87%
 
+import heapq
 from queue import PriorityQueue
 from typing import List
 
@@ -22,6 +23,26 @@ class ListNode:
 
 
 def mergeKLists(lists: List[ListNode]) -> ListNode:
+    """
+    based on heap
+    """
+    heap = []
+    dummy = ListNode(0)
+    mergingNode = dummy
+    for node in lists:
+        if node:
+            heapq.heappush(heap, node)
+
+    while len(heap) > 0:
+        node = heapq.heappop(heap)
+        mergingNode.next = node
+        mergingNode = mergingNode.next
+        if node.next:
+            heapq.heappush(heap, node.next)
+    return dummy.next
+
+
+def mergeKLists2(lists: List[ListNode]) -> ListNode:
     """
     based on priority queue
     """
@@ -38,12 +59,12 @@ def mergeKLists(lists: List[ListNode]) -> ListNode:
         mergingNode.next = node
         mergingNode = mergingNode.next
         if node.next:
-            queue.put( node.next)
+            queue.put(node.next)
 
     return dummy.next
 
 
-def mergeKLists2(lists: List[ListNode]) -> ListNode:
+def mergeKLists3(lists: List[ListNode]) -> ListNode:
     """
     based on merge sort
     """
