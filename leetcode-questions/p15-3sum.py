@@ -17,6 +17,7 @@ def threeSum(nums):
     for i, v in enumerate(nums[:-2]):
         if v > 0:
             break
+
         if i > 0 and v == nums[i - 1]:
             continue
         low = i + 1
@@ -41,5 +42,5 @@ def threeSum(nums):
 
 if __name__ == "__main__":
     a = [-1, 0, 1, 2, -1, -4]
-    # a = [0, 0, 0, 1]
+
     print(threeSum(a))
