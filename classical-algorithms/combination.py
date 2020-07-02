@@ -7,7 +7,7 @@ def combination(arr, n):
     """
     res = []
 
-    def recursiveCombination(arr, step, selected, n):
+    def recursiveCombination(step, selected, n):
         if len(selected) == n:
             res.append(selected.copy())
             return
@@ -16,17 +16,16 @@ def combination(arr, n):
             return
 
         selected.append(arr[step])
-        recursiveCombination(arr, step + 1, selected, n)
+        recursiveCombination(step + 1, selected, n)
 
         selected.pop()
-        recursiveCombination(arr, step + 1, selected, n)
+        recursiveCombination(step + 1, selected, n)
 
-    recursiveCombination(arr, 0, [], n)
+    recursiveCombination(0, [], n)
 
     return res
 
 
 if __name__ == "__main__":
     arr = [1, 2, 3, 4, 5, 6, 7]
-
     print(combination(arr, 3))
