@@ -2,7 +2,7 @@
  * LeetCode : Sum of Left Leaves
  * https://leetcode.com/problems/sum-of-left-leaves/
  *
- * submission : faster than 95%
+ * submission : faster than 100%
  */
 package main
 
