@@ -2,7 +2,7 @@
  * LeetCode : Binary Tree Inorder Traversal
  * https://leetcode.com/problems/binary-tree-inorder-traversal/
  *
- * submission : faster than 99%
+ * submission : faster than 100%
  */
 package main
 
