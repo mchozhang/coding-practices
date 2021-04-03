@@ -13,7 +13,7 @@
  *
  * output: [[3], [9,20], [15,7]]
  *
- * submission : faster than 40%
+ * submission : faster than 100%
  */
 
 package main
@@ -31,38 +31,27 @@ func levelOrder(root *TreeNode) [][]int {
 		return nil
 	}
 
-	levelCounter := map[int]int{}
-	traversal := make([][]int, 0)
-	queue := make([]*TreeNode, 0)
+	var result [][]int
+	queue := []*TreeNode{root}
 
-	queue = append(queue, root)
-	level := 0
-	levelCounter[0] = 1
 	for len(queue) != 0 {
-		current := queue[0]
-		queue = queue[1:]
-
-		if len(traversal) <= level {
-			traversal = append(traversal, []int{current.Val})
-		} else {
-			traversal[level] = append(traversal[level], current.Val)
+		size := len(queue)
+		var level []int
+		for i := 0; i < size; i++ {
+			current := queue[0]
+			queue = queue[1:]
+			if current.Left != nil {
+				queue = append(queue, current.Left)
+			}
+			if current.Right != nil {
+				queue = append(queue, current.Right)
+			}
+			level = append(level, current.Val)
 		}
-
-		if current.Left != nil {
-			queue = append(queue, current.Left)
-			levelCounter[level+1]++
-		}
-		if current.Right != nil {
-			queue = append(queue, current.Right)
-			levelCounter[level+1]++
-		}
-
-		if len(traversal[level]) == levelCounter[level] {
-			level++
-		}
+		result = append(result, level)
 	}
 
-	return traversal
+	return result
 }
 
 func main() {
