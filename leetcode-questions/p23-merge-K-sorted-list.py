@@ -24,7 +24,7 @@ class ListNode:
 
 def mergeKLists(lists: List[ListNode]) -> ListNode:
     """
-    based on heap
+    based on heap, fastest
     """
     heap = []
     dummy = ListNode(0)
