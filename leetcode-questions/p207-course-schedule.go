@@ -2,7 +2,7 @@
  * 10. Course Schedule
  * https://leetcode.com/problems/course-schedule/
  *
- * submission: faster than 70%
+ * submission: faster than 100%
  */
 package main
 
