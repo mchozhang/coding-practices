@@ -8,7 +8,7 @@ package main
 
 func allPathsSourceTarget(graph [][]int) [][]int {
 	var res [][]int
-	dfs(&graph, 0, []int{0}, &res)
+	dfs(graph, 0, []int{0}, &res)
 	return res
 }
 
