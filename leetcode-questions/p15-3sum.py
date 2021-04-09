@@ -7,7 +7,7 @@
 #  Input: [-1, 0, 1, 2, -1, -4]
 #  Output: [ [-1, 0, 1], [-1, -1, 2]]
 #
-#  submission : faster than 63%
+#  submission : faster than 95%
 
 
 def threeSum(nums):
