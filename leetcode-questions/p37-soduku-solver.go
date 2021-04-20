@@ -39,7 +39,7 @@ func solve(board [][]byte) bool {
 
 func isValid(board [][]byte, row int, col int, c byte) bool {
 	for i := 0; i < 9; i++ {
-		//check column
+		// check column
 		if board[i][col] != '.' && board[i][col] == c {
 			return false
 		}
@@ -48,7 +48,7 @@ func isValid(board [][]byte, row int, col int, c byte) bool {
 			return false
 		}
 		// check block
-		if board[3*(row/3)+i/3][ 3*(col/3)+i%3] != '.' &&
+		if board[3*(row/3)+i/3][3*(col/3)+i%3] != '.' &&
 			board[3*(row/3)+i/3][3*(col/3)+i%3] == c {
 			return false
 		}
@@ -57,7 +57,7 @@ func isValid(board [][]byte, row int, col int, c byte) bool {
 }
 
 func main() {
-	board := [][] byte{
+	board := [][]byte{
 		{'5', '3', '.', '.', '7', '.', '.', '.', '.'},
 		{'6', '.', '.', '1', '9', '5', '.', '.', '.'},
 		{'.', '9', '8', '.', '.', '.', '.', '6', '.'},
@@ -70,7 +70,7 @@ func main() {
 	}
 
 	solveSudoku(board)
-	a := [9][9] int{}
+	a := [9][9]int{}
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			a[i][j] = int(board[i][j] - '0')
