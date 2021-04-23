@@ -26,28 +26,25 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-var count = 0
-var result = 0
-
 func kthSmallest(root *TreeNode, k int) int {
-    count = 0
-    result = 0
-	inOrderSearch(root, k)
+    count := 0
+    result := 0
+	inOrderSearch(root, k, &count, &result)
     return result
 }
 
-func inOrderSearch(node *TreeNode, k int) {
+func inOrderSearch(node *TreeNode, k int, count *int, res *int) {
 	if node.Left != nil {
-		inOrderSearch(node.Left, k)
+		inOrderSearch(node.Left, k, count, res)
 	}
-	count++
-	if count == k {
-		result = node.Val
+	*count++
+	if *count == k {
+		*res = node.Val
 		return
 	}
 
 	if node.Right != nil {
-		inOrderSearch(node.Right, k)
+		inOrderSearch(node.Right, k, count, res)
 	}
 }
 
