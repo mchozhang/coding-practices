@@ -2,7 +2,7 @@
  * LeetCode : Number of 1 Bits
  * https://leetcode.com/problems/number-of-1-bits/
  *
- * submission : faster than 94%
+ * submission : faster than 100%
  */
 package main
 
