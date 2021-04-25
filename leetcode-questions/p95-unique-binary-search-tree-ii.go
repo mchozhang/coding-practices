@@ -2,7 +2,7 @@
  * LeetCode : Unique Binary Search Trees II
  * https://leetcode.com/problems/unique-binary-search-trees-ii/
  *
- * submission : faster than 100%
+ * submission : faster than 91%
  */
 package main
 
@@ -20,10 +20,7 @@ func buildBinarySearchTree(low int, high int) []*TreeNode {
 		rightList := buildBinarySearchTree(i+1, high)
 		for _, leftNode := range leftList {
 			for _, rightNode := range rightList {
-				node := &TreeNode{Val: i}
-				node.Left = leftNode
-				node.Right = rightNode
-				res = append(res, node)
+				res = append(res, &TreeNode{Val: i, Left: leftNode, Right: rightNode})
 			}
 		}
 	}
