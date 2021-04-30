@@ -28,7 +28,6 @@ def numIslands(grid: List[List[str]]) -> int:
                 search(i, j)
 
                 res += 1
-    print(grid)
     return res
 
 
