@@ -1,7 +1,7 @@
 #  116. Populating Next Right Pointers in Each Node
 #  https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 #
-#  submission : faster than 75%
+#  submission : faster than 60%
 
 class Node:
     def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
