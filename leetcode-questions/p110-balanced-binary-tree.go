@@ -6,6 +6,12 @@
  */
 package main
 
+type TreeNode struct {
+	Left  *TreeNode
+	Right *TreeNode
+	Val   int
+}
+
 func isBalanced(root *TreeNode) bool {
 	if root == nil {
 		return true
@@ -15,7 +21,7 @@ func isBalanced(root *TreeNode) bool {
 	if leftBal && rightBal {
 		leftDepth := getDepth(root.Left)
 		rightDepth := getDepth(root.Right)
-		if leftDepth - rightDepth > 1 || rightDepth - leftDepth > 1 {
+		if leftDepth-rightDepth > 1 || rightDepth-leftDepth > 1 {
 			return false
 		}
 		return true

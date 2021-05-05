@@ -6,6 +6,17 @@
  */
 package main
 
+type TreeNode struct {
+	Left  *TreeNode
+	Right *TreeNode
+	Val   int
+}
+
+type ListNode struct {
+	Next *ListNode
+	Val  int
+}
+
 func sortedListToBST(head *ListNode) *TreeNode {
 	if head == nil {
 		return nil

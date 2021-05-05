@@ -6,6 +6,12 @@
  */
 package main
 
+type TreeNode struct {
+	Left  *TreeNode
+	Right *TreeNode
+	Val   int
+}
+
 func pathSum(root *TreeNode, targetSum int) [][]int {
 	res := make([][]int, 0)
 	if root != nil {
