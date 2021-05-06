@@ -6,17 +6,18 @@
 from typing import List
 import heapq
 
+
 # O(N)
 def candy2(nums: List[int]) -> int:
     up, down, peak = 0, 0, 0
     res = 1
     for i in range(1, len(nums)):
-        if nums[i] > nums[i-1]:
+        if nums[i] > nums[i - 1]:
             down = 0
             up += 1
             peak = up
             res += up + 1
-        elif nums[i] == nums[i-1]:
+        elif nums[i] == nums[i - 1]:
             up = down = peak = 0
             res += 1
         else:
