@@ -2,7 +2,7 @@
  * LeetCode : Surrounded Regions
  * https://leetcode.com/problems/surrounded-regions/
  * 
- * submission: faster than 33%
+ * submission: faster than 40%
  */
 
 /**
@@ -15,26 +15,20 @@ var solve = function (board) {
 
     let checkEdge = (i, j) => {
         let queue = [i * n + j]
-        let region = new Set([i * n + j])
-
+        board[i][j] = 'o'
         while (queue.length !== 0) {
             let pos = queue.shift()
             let x = Math.floor(pos / n), y = pos % n
-
             dirs.forEach(([dx, dy]) => {
                 let nextX = x + dx, nextY = y + dy
                 if (-1 < nextX && nextX < m && -1 < nextY && nextY < n) {
-                    let nextPos = nextX * n + nextY
-                    if (board[nextX][nextY] === 'O' && !region.has(nextPos)) {
-                        region.add(nextPos)
-                        queue.push(nextPos)
+                    if (board[nextX][nextY] === 'O') {
+                        board[nextX][nextY] = 'o'
+                        queue.push(nextX * n + nextY)
                     }
                 }
             })
         }
-        region.forEach(pos => {
-            board[Math.floor(pos / n)][pos % n] = 'o'
-        })
     }
 
 
@@ -65,3 +59,7 @@ var solve = function (board) {
         }
     }
 };
+
+let grid = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+solve(grid)
+console.log(grid)
