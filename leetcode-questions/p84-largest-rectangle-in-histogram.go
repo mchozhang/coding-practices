@@ -27,5 +27,3 @@ func largestRectangleArea(heights []int) int {
 	}
 	return max
 }
-
-4 5 1
