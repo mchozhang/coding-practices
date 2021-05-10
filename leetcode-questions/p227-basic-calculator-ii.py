@@ -37,12 +37,11 @@ def calculate2(s: str) -> int:
     isNum = True
     while i < len(s):
         if isNum:
-            num = ""
+            start = i
             while i < len(s) and '0' <= s[i] <= '9':
-                num += s[i]
                 i += 1
 
-            num = int(num)
+            num = int(s[start:i])
             if len(operatorStack) != 0 and \
                     (operatorStack[-1] == '*' or operatorStack[-1] == '/'):
                 op = operatorStack.pop()
@@ -55,9 +54,7 @@ def calculate2(s: str) -> int:
                 numStack.append(num)
 
         else:
-            if s[i] != " ":
-                operatorStack.append(s[i])
-
+            operatorStack.append(s[i])
             i += 1
         isNum = not isNum
 
