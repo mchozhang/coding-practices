@@ -13,11 +13,11 @@ class Solution
 private:
     vector<int> nums;
 
-    void swap(int *i, int *j)
+    void swap(int &i, int &j)
     {
-        int t = *i;
-        *i = *j;
-        *j = t;
+        int t = i;
+        i = j;
+        j = t;
     }
 
 public:
@@ -39,7 +39,7 @@ public:
         for (int i = 0; i < nums.size(); i++)
         {
             int j = rand() % (nums.size() - i);
-            swap(&arr[i], &arr[i + j]);
+            swap(arr[i], arr[i + j]);
         }
         return arr;
     }
