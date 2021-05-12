@@ -5,7 +5,7 @@
  * submission : faster than 93%
  */
 
- package main
+package main
 
 type NumMatrix struct {
 	Matrix [][]int
