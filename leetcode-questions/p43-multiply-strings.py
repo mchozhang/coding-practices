@@ -1,7 +1,7 @@
 #  43. Multiply Strings
 #  https://leetcode.com/problems/multiply-strings/
 #
-#  submission: faster than 67%
+#  submission: faster than 35%
 
 
 def multiply(num1: str, num2: str) -> str:
