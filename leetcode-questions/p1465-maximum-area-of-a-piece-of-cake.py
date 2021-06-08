@@ -4,6 +4,7 @@
 #  submission : faster than 5%
 from typing import List
 
+
 def maxArea(h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int]) -> int:
     horizontalCuts.sort()
     verticalCuts.sort()
