@@ -1,5 +1,5 @@
-# LeetCode : 219. Contains Duplicate II
-# https://leetcode.com/problems/contains-duplicate-ii/
+# LeetCode : 1004. Max Consecutive Ones III
+# https://leetcode.com/problems/max-consecutive-ones-iii/
 
 # submission : faster than 99%
 
