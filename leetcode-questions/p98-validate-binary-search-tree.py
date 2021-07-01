@@ -6,7 +6,7 @@
 # Input: [5,1,4,null,null,3,6]
 # Output: false
 #
-# submission : faster than 84.54%
+# submission : faster than 89%
 
 
 class TreeNode:
@@ -16,7 +16,24 @@ class TreeNode:
         self.right = right
 
 
-def isValidBST(root: TreeNode) -> bool:
+# fastest
+def isValidBST(root):
+    prev = TreeNode(float('-inf'))
+    res = True
+
+    def inorder(node):
+        nonlocal res, prev
+        if node:
+            inorder(node.left)
+            if node.val < prev.val:
+                res = False
+            prev = node
+            inorder(node.right)
+
+    return res
+
+
+def isValidBST2(root: TreeNode) -> bool:
     def recursiveValidate(root, minVal, maxVal):
         if not root:
             return True

@@ -1,6 +1,6 @@
 /**
- * LeetCode : Palindromic Substrings
- * https://leetcode.com/problems/palindromic-substrings/
+ * LeetCode : Palindrome Linked List
+ * https://leetcode.com/problems/palindrome-linked-list/
  *
  * submission : faster than 53%
  */

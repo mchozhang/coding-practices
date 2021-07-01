@@ -30,7 +30,7 @@ func maxSubArray(nums []int) int {
 }
 
 func main() {
-	nums := [] int {-2,1,-3,4,-1,2,1,-5,4}
+	nums := []int {-2,1,-3,4,-1,2,1,-5,4}
 
 	// [4,-1,2,1] has the largest sum = 6
 	println(maxSubArray(nums))

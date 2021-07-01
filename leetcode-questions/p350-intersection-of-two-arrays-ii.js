@@ -29,3 +29,28 @@ var intersect = function (nums1, nums2) {
     });
     return res
 };
+
+
+/**
+ * 2 sorted arrays
+ * @param nums1
+ * @param nums2
+ * @returns {*[]}
+ */
+var intersect2 = function (nums1, nums2) {
+    let i = 0, j = 0
+    let res = []
+    while (i < nums1.length && j < nums2.length) {
+        if (nums1[i] === nums2[j]) {
+            res.push(nums1[i])
+            i++
+            j++
+        } else if (nums1[i] < nums2[j]) {
+            i++
+        } else {
+            j++
+        }
+    }
+
+    return res
+};
